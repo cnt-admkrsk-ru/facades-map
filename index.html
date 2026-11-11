@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Внешний вид фасадов на центральных улицах · Красноярск</title>
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="style.css">
+<script defer src="vendor/leaflet.js"></script>
+<script defer src="buildings.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<main>
+  <header class="heading">
+    <div>
+      <div class="eyebrow">Красноярск · К 400-летию города</div>
+      <h1>Внешний вид фасадов на центральных улицах</h1>
+      <p>Карла Маркса, пр. Мира, Ленина</p>
+    </div>
+  </header>
+  <div class="workspace">
+    <section class="map-frame" aria-label="Карта фасадов">
+      <div id="map"></div>
+      <button id="reset" class="reset" type="button">Все объекты</button>
+      <p id="map-warning" role="status" hidden>Подложка не загрузилась. Метки и фотографии доступны. Проверь, что архив распакован полностью.</p>
+    </section>
+    <aside class="panel" aria-label="Объекты и легенда">
+      <section id="selection" aria-live="polite">
+        <div class="eyebrow" id="card-label">Как пользоваться</div>
+        <h2 id="card-title">Выбери здание</h2>
+        <p id="hint">Наведи курсор на метку, чтобы увидеть фасад. Нажми на метку, чтобы закрепить карточку.</p>
+        <button type="button" id="close" aria-label="Закрыть карточку" hidden>×</button>
+        <div id="details" hidden>
+          <p id="card-problem" hidden></p>
+          <img id="facade" alt="" hidden>
+          <div id="photo-placeholder">
+            <strong>Фото пока нет</strong>
+            <span>Имя файла: <code id="photo-name"></code></span>
+          </div>
+          <button type="button" class="photo-link" id="enlarge" hidden>Увеличить фотографию</button>
+        </div>
+      </section>
+      <section class="legend">
+        <h2>Легенда</h2>
+        <ul id="legend"></ul>
+      </section>
+      <section class="objects">
+        <h2>Объекты <span id="count"></span></h2>
+        <div id="addresses"></div>
+      </section>
+    </aside>
+  </div>
+</main>
+<dialog id="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-heading"><h2 id="viewer-title"></h2><form method="dialog"><button aria-label="Закрыть фотографию">×</button></form></div>
+  <img id="large-photo" alt="">
+</dialog>
+</body>
+</html>
