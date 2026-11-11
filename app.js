@@ -26,6 +26,7 @@ map.attributionControl.setPrefix(false);
 L.control.scale({imperial: false, maxWidth: 110}).addTo(map);
 L.imageOverlay('map/center.svg', basemapBounds, {
   attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> · подложка исторического центра'
+  referrerPolicy: 'strict-origin-when-cross-origin'
 }).on('error', () => {
   byId('map-warning').hidden = false;
 }).addTo(map);
