@@ -1,4 +1,4 @@
-// app.js — метки и фото в Supabase.
+// app.js — метки и фото в Supabase. Автоконвертация в WebP.
 const SUPABASE_URL = 'https://lifgmqcekizumhgldzjk.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_pNYuQiKd4IRAfPh1yd18Sw_GynFmbLz';
 const BUCKET_NAME = 'photos';
@@ -20,6 +20,28 @@ function slugify(str) {
     .join('').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+// --- Конвертер в WebP ---
+async function convertToWebP(file) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      // Сжимаем в webp с качеством 0.8 (хороший баланс)
+      canvas.toBlob((blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error('Ошибка конвертации в WebP'));
+      }, 'image/webp', 0.8);
+    };
+    img.onerror = () => reject(new Error('Не удалось загрузить изображение'));
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+// --- Supabase: фото ---
 async function uploadToSupabase(file, fileName) {
   const url = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`;
   const res = await fetch(url, {
@@ -40,6 +62,7 @@ async function deleteFromSupabase(fileName) {
   });
 }
 
+// --- Supabase: метки ---
 async function loadMarkersFromSupabase() {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/markers?select=*`, {
     headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
@@ -186,24 +209,19 @@ try {
       if (!building) return;
       byId('photo-name').textContent = building.photo;
       
-      const possibleUrls = [
-        `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.jpg`,
-        `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.jpeg`,
-        `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.png`,
-        `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp`
-      ];
-      for (const url of possibleUrls) {
-        try {
-          const res = await fetch(url, { method: 'HEAD' });
-          if (res.ok) {
-            if (request !== photoRequest) return;
-            photo.src = url; photo.alt = 'Фасад · ' + building.address;
-            photo.hidden = false; placeholder.hidden = true;
-            if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
-            return;
-          }
-        } catch (e) {}
-      }
+      // Теперь всегда ищем только .webp
+      const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp`;
+      
+      try {
+        const res = await fetch(url, { method: 'HEAD' });
+        if (res.ok) {
+          if (request !== photoRequest) return;
+          photo.src = url; photo.alt = 'Фасад · ' + building.address;
+          photo.hidden = false; placeholder.hidden = true;
+          if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
+          return;
+        }
+      } catch (e) {}
       placeholder.hidden = false;
     }
 
@@ -354,13 +372,20 @@ try {
       const input = byId('photo-input'); if (!input) return;
       input.addEventListener('change', async () => {
         const file = input.files && input.files[0]; if (!file || !pinned) return;
-        const fileName = pinned.photo + '.' + (file.name.split('.').pop() || 'jpg');
-        byId('photo-name').textContent = 'Загрузка...';
+        
+        byId('photo-name').textContent = 'Конвертация...';
         try {
-          await uploadToSupabase(file, fileName);
+          // 1. Конвертируем в WebP
+          const webpBlob = await convertToWebP(file);
+          // 2. Имя файла всегда .webp
+          const fileName = pinned.photo + '.webp';
+          
+          byId('photo-name').textContent = 'Загрузка...';
+          // 3. Загружаем в Supabase
+          await uploadToSupabase(webpBlob, fileName);
           await showPhoto(pinned);
         } catch (e) {
-          alert('Ошибка загрузки: ' + e.message);
+          alert('Ошибка: ' + e.message);
           byId('photo-name').textContent = 'Ошибка';
         }
         input.value = '';
@@ -402,7 +427,7 @@ try {
       btn.addEventListener('click', async () => {
         if (!pinned || !isCustom(pinned)) return;
         if (!confirm(`Удалить метку «${pinned.address}»?`)) return;
-        const fileName = pinned.photo + '.jpg';
+        const fileName = pinned.photo + '.webp';
         try { await deleteFromSupabase(fileName); } catch (e) {}
         const idx = customBuildings.indexOf(pinned);
         if (idx !== -1) customBuildings.splice(idx, 1);
