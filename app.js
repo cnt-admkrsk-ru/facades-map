@@ -156,7 +156,7 @@ try {
     ]).pad(0.03);
 
     const map = L.map('map', {
-      center: [56.0125, 92.8695], zoom: 15, minZoom: 13, maxZoom: 19,
+      center: [56.0125, 92.8695], zoom: 15, minZoom: 13, maxZoom: 18,
       maxBounds: mapBounds, maxBoundsViscosity: 1,
       zoomAnimation: true, fadeAnimation: true, markerZoomAnimation: true
     });
@@ -165,7 +165,7 @@ try {
     map.attributionControl.setPrefix(false);
     L.control.scale({ imperial: false, maxWidth: 110 }).addTo(map);
 
-    L.imageOverlay('map/center.svg', basemapBounds, {
+    L.imageOverlay('map/center.png', basemapBounds, {
       attribution: '© OpenStreetMap contributors'
     }).on('error', () => {
       const w = byId('map-warning'); if (w) w.hidden = false;
