@@ -20,7 +20,6 @@ function slugify(str) {
     .join('').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-// --- Конвертер в WebP ---
 async function convertToWebP(file) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -40,7 +39,6 @@ async function convertToWebP(file) {
   });
 }
 
-// --- Supabase: фото ---
 async function uploadToSupabase(file, fileName) {
   const url = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${fileName}`;
   const res = await fetch(url, {
@@ -48,10 +46,7 @@ async function uploadToSupabase(file, fileName) {
     headers: { 'Authorization': `Bearer ${SUPABASE_KEY}`, 'apikey': SUPABASE_KEY, 'x-upsert': 'true' },
     body: file
   });
-  if (!res.ok) {
-    const errText = await res.text();
-    throw new Error(errText);
-  }
+  if (!res.ok) throw new Error(await res.text());
   return `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${fileName}`;
 }
 
@@ -61,7 +56,6 @@ async function deleteFromSupabase(fileName) {
   });
 }
 
-// --- Supabase: метки ---
 async function loadMarkersFromSupabase() {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/markers?select=*`, {
     headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
@@ -150,7 +144,7 @@ function createUI() {
       '<label>Адрес (имя файла фото) <input type="text" id="new-address" placeholder="ул. Ленина, 100" required></label>' +
       '<label>Координаты (широта, долгота) <input type="text" id="new-coords" placeholder="56.012345, 92.876543" required></label>' +
       '<label>Категория <select id="new-status"><option value="green">Удовлетворительно</option><option value="yellow">В ремонте / план</option><option value="red">Проблемный</option></select></label>' +
-      '<label>Описание (проблематика) <textarea id="new-problem" rows="3" placeholder="МКД. Требуется ремонт..." style="font: inherit; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); resize: vertical;"></textarea></label>' +
+      '<label>Описание (проблематика) <textarea id="new-problem" rows="3" placeholder="МКД. Требуется ремонт..."></textarea></label>' +
       '<div class="form-actions"><button type="button" id="cancel-add">Отмена</button><button type="submit" id="confirm-add">Добавить</button></div>' +
       '</form>';
     document.body.appendChild(dialog);
@@ -168,7 +162,7 @@ try {
     let pinned = null, preview = null;
     const entries = [];
     let photoBuilding = null, photoRequest = 0;
-    const loadedPhotos = new Map(); // Кэш загруженных фото
+    const loadedPhotos = new Map();
 
     const basemapBounds = L.latLngBounds([56.004, 92.846], [56.021, 92.893]);
     const allBuildings = () => {
@@ -209,7 +203,6 @@ try {
       photo.hidden = true; placeholder.hidden = !building;
       if (!building) return;
       
-      // Проверяем кэш
       if (loadedPhotos.has(building.photo)) {
         photo.src = loadedPhotos.get(building.photo); 
         photo.alt = 'Фасад · ' + building.address;
@@ -225,15 +218,15 @@ try {
         const res = await fetch(url, { method: 'HEAD' });
         if (res.ok) {
           if (request !== photoRequest) return;
-          loadedPhotos.set(building.photo, url); // Сохраняем в кэш
+          loadedPhotos.set(building.photo, url);
           photo.src = url; photo.alt = 'Фасад · ' + building.address;
           photo.hidden = false; placeholder.hidden = true;
-          if (byId('enlarge')) byId('enlarge').hidden = false; // Показываем кнопку
+          if (byId('enlarge')) byId('enlarge').hidden = false;
           return;
         }
       } catch (e) {}
       placeholder.hidden = false;
-      if (byId('enlarge')) byId('enlarge').hidden = true; // Скрываем, если фото нет
+      if (byId('enlarge')) byId('enlarge').hidden = true;
     }
 
     function isCustom(b) { return customBuildings.includes(b); }
@@ -246,7 +239,7 @@ try {
       byId('close').hidden = !pinned;
       byId('details').hidden = !building;
 
-      // Блок координат (кликабельный для копирования)
+      // Блок координат (теперь создаётся и вставляется после описания)
       let coordsEl = byId('card-coords');
       if (!coordsEl) {
         coordsEl = document.createElement('div'); coordsEl.id = 'card-coords';
@@ -254,7 +247,6 @@ try {
         coordsEl.style.marginTop = '4px'; coordsEl.style.marginBottom = '8px';
         coordsEl.style.cursor = 'pointer'; coordsEl.style.textDecoration = 'underline dashed';
         coordsEl.title = 'Нажмите, чтобы скопировать';
-        const title = byId('card-title'); if (title) title.parentNode.insertBefore(coordsEl, title);
         
         coordsEl.addEventListener('click', () => {
           navigator.clipboard.writeText(coordsEl.textContent.replace('Координаты: ', ''))
@@ -265,6 +257,11 @@ try {
             });
         });
       }
+      
+      // Перемещаем координаты вниз (после описания)
+      const detailsDiv = byId('details');
+      if (detailsDiv) detailsDiv.appendChild(coordsEl);
+
       if (building && building.coords) {
         coordsEl.textContent = 'Координаты: ' + building.coords[0].toFixed(6) + ', ' + building.coords[1].toFixed(6);
         coordsEl.hidden = false;
@@ -273,7 +270,6 @@ try {
       const problem = byId('card-problem');
       problem.textContent = building?.problem ?? ''; problem.hidden = !problem.textContent;
 
-      // Подсветка описания в зависимости от статуса
       if (problem && building) {
         problem.className = 'problem ' + building.status;
       }
@@ -292,7 +288,6 @@ try {
       }
       if (building !== photoBuilding) { photoBuilding = building; showPhoto(building); }
       
-      // Кнопка увеличения: скрыта, только если фото нет
       byId('enlarge').hidden = photo.hidden;
 
       for (const { building: entry, button, marker } of entries) {
@@ -411,7 +406,6 @@ try {
           byId('photo-name').textContent = 'Загрузка...';
           await uploadToSupabase(webpBlob, fileName);
           
-          // Очищаем кэш для этого фото, чтобы оно загрузилось заново
           loadedPhotos.delete(pinned.photo);
           photoBuilding = null; 
           renderCard();
@@ -522,28 +516,40 @@ try {
       enlargeBtn.addEventListener('click', () => {
         if (!pinned || photo.hidden) return;
         
-        byId('viewer-title').textContent = pinned.address;
+        // Настраиваем заголовок
+        const titleEl = byId('viewer-title');
+        titleEl.textContent = pinned.address;
+        titleEl.style.textAlign = 'center';
+        titleEl.style.marginBottom = '4px';
         
+        // Настраиваем описание (2 строчка, слева)
         let descEl = byId('viewer-desc');
         if (!descEl) {
           descEl = document.createElement('p');
           descEl.id = 'viewer-desc';
-          descEl.style.margin = '0 0 12px';
-          descEl.style.fontSize = '14px';
-          descEl.style.fontWeight = '600';
-          descEl.style.textAlign = 'center';
-          byId('viewer-title').after(descEl);
+          titleEl.after(descEl);
         }
+        
+        // Стили для описания (выравнивание по левому краю)
+        descEl.style.textAlign = 'left';
+        descEl.style.margin = '0 16px 12px';
+        descEl.style.fontSize = '14px';
+        descEl.style.lineHeight = '1.4';
+        descEl.style.fontWeight = 'normal';
+        descEl.style.padding = '8px 12px';
+        descEl.style.borderRadius = '8px';
+        
         if (pinned.problem) {
           descEl.textContent = pinned.problem;
-          descEl.className = 'problem ' + pinned.status;
+          // Подсветка в зависимости от статуса
+          if (pinned.status === 'red') descEl.style.backgroundColor = 'rgba(195, 64, 69, 0.12)';
+          else if (pinned.status === 'yellow') descEl.style.backgroundColor = 'rgba(239, 182, 41, 0.12)';
+          else descEl.style.backgroundColor = 'rgba(34, 130, 89, 0.12)';
+          
           descEl.hidden = false;
         } else {
           descEl.hidden = true;
         }
-
-        byId('viewer-title').style.textAlign = 'center';
-        byId('viewer-title').style.marginBottom = '0';
 
         byId('large-photo').src = photo.src;
         viewer.showModal();
