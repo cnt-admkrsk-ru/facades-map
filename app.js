@@ -30,7 +30,6 @@ async function convertToWebP(file) {
       canvas.height = img.height;
       const ctx = canvas.getContext('2d');
       ctx.drawImage(img, 0, 0);
-      // Сжимаем в webp с качеством 0.8 (хороший баланс)
       canvas.toBlob((blob) => {
         if (blob) resolve(blob);
         else reject(new Error('Ошибка конвертации в WebP'));
@@ -209,8 +208,9 @@ try {
       if (!building) return;
       byId('photo-name').textContent = building.photo;
       
-      // Теперь всегда ищем только .webp
-      const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp`;
+      // Убираем "мусор" из URL, чтобы обновить кэш
+      const cacheBuster = Date.now();
+      const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp?t=${cacheBuster}`;
       
       try {
         const res = await fetch(url, { method: 'HEAD' });
@@ -375,15 +375,15 @@ try {
         
         byId('photo-name').textContent = 'Конвертация...';
         try {
-          // 1. Конвертируем в WebP
           const webpBlob = await convertToWebP(file);
-          // 2. Имя файла всегда .webp
           const fileName = pinned.photo + '.webp';
           
           byId('photo-name').textContent = 'Загрузка...';
-          // 3. Загружаем в Supabase
           await uploadToSupabase(webpBlob, fileName);
-          await showPhoto(pinned);
+          
+          // Принудительно перезагружаем фото
+          photoBuilding = null; 
+          renderCard();
         } catch (e) {
           alert('Ошибка: ' + e.message);
           byId('photo-name').textContent = 'Ошибка';
