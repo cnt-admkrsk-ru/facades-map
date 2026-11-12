@@ -168,7 +168,7 @@ try {
     let pinned = null, preview = null;
     const entries = [];
     let photoBuilding = null, photoRequest = 0;
-    const loadedPhotos = new Map(); // Кэш загруженных фото (чтобы не грузить повторно)
+    const loadedPhotos = new Map(); // Кэш загруженных фото
 
     const basemapBounds = L.latLngBounds([56.004, 92.846], [56.021, 92.893]);
     const allBuildings = () => {
@@ -209,12 +209,12 @@ try {
       photo.hidden = true; placeholder.hidden = !building;
       if (!building) return;
       
-      // Проверяем кэш (если фото уже загружали в этой сессии)
+      // Проверяем кэш
       if (loadedPhotos.has(building.photo)) {
         photo.src = loadedPhotos.get(building.photo); 
         photo.alt = 'Фасад · ' + building.address;
         photo.hidden = false; placeholder.hidden = true;
-        if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
+        if (byId('enlarge')) byId('enlarge').hidden = false;
         return;
       }
 
@@ -228,11 +228,12 @@ try {
           loadedPhotos.set(building.photo, url); // Сохраняем в кэш
           photo.src = url; photo.alt = 'Фасад · ' + building.address;
           photo.hidden = false; placeholder.hidden = true;
-          if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
+          if (byId('enlarge')) byId('enlarge').hidden = false; // Показываем кнопку
           return;
         }
       } catch (e) {}
       placeholder.hidden = false;
+      if (byId('enlarge')) byId('enlarge').hidden = true; // Скрываем, если фото нет
     }
 
     function isCustom(b) { return customBuildings.includes(b); }
@@ -290,7 +291,9 @@ try {
         }
       }
       if (building !== photoBuilding) { photoBuilding = building; showPhoto(building); }
-      byId('enlarge').hidden = true;
+      
+      // Кнопка увеличения: скрыта, только если фото нет
+      byId('enlarge').hidden = photo.hidden;
 
       for (const { building: entry, button, marker } of entries) {
         button.setAttribute('aria-pressed', String(entry === pinned));
@@ -525,7 +528,7 @@ try {
         if (!descEl) {
           descEl = document.createElement('p');
           descEl.id = 'viewer-desc';
-          descEl.style.margin = '8px 0';
+          descEl.style.margin = '0 0 12px';
           descEl.style.fontSize = '14px';
           descEl.style.fontWeight = '600';
           descEl.style.textAlign = 'center';
@@ -533,7 +536,7 @@ try {
         }
         if (pinned.problem) {
           descEl.textContent = pinned.problem;
-          descEl.className = 'problem ' + pinned.status; // Подсветка статуса
+          descEl.className = 'problem ' + pinned.status;
           descEl.hidden = false;
         } else {
           descEl.hidden = true;

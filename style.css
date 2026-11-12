@@ -146,6 +146,23 @@ body {
 }
 .upload-btn span:hover { background: var(--accent-hover); }
 
+/* Кнопка увеличения фото (в стиле координат) */
+.photo-link {
+  display: block;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  padding: 4px 0 0;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline dashed;
+  text-underline-offset: 3px;
+  text-align: left;
+}
+.photo-link:hover { color: var(--accent-hover); }
+
 /* ============ ФИЛЬТР (ПЕРЕКЛЮЧАТЕЛИ) ============ */
 .legend { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; }
 .legend li {
@@ -179,7 +196,6 @@ html[data-theme="dark"] .switch input:checked + .slider { background: var(--acce
 }
 .address-list { display: grid; gap: 4px; max-height: 40vh; overflow-y: auto; padding-right: 4px; }
 
-/* Группа (улица) */
 .address-group { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
 .group-header {
   display: flex; align-items: center; justify-content: space-between;
@@ -192,7 +208,6 @@ html[data-theme="dark"] .switch input:checked + .slider { background: var(--acce
 .group-content { display: none; border-top: 1px solid var(--line); }
 .address-group.open .group-content { display: block; }
 
-/* Элемент внутри группы */
 .address {
   display: flex; align-items: center; gap: 9px;
   padding: 8px 12px; border: none; background: none;
@@ -234,7 +249,7 @@ dialog::backdrop { background: rgba(8, 20, 25, 0.7); }
   text-align: center;
   font-size: 14px;
   font-weight: 600;
-  margin: 8px 16px 12px;
+  margin: 0 16px 12px; /* Отступ под заголовком, чтобы не слипалось */
   padding: 8px;
   border-radius: 8px;
   color: var(--text);
@@ -325,5 +340,4 @@ html[data-theme="dark"] .leaflet-control-attribution {
   .map-wrap { height: 50vh; min-height: 300px; }
   .sidebar { gap: 12px; }
   .card { padding: 12px; }
-  .add-form { width: 100%; max-width: 100%; }
-}
+  .add
