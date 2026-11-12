@@ -505,7 +505,7 @@ try {
       }
     }
 
-    // --- МОДАЛЬНОЕ ОКНО С ФОТО И ОПИСАНИЕМ ---
+    // --- МОДАЛЬНОЕ ОКНО С ФОТО И ОПИСАНИЕМ (БЕЗ КООРДИНАТ) ---
     function initEnlarge() {
       const enlargeBtn = byId('enlarge');
       if (!enlargeBtn) return;
@@ -528,7 +528,7 @@ try {
         }
         
         descEl.style.textAlign = 'center';
-        descEl.style.margin = '0 16px 8px';
+        descEl.style.margin = '0 16px 12px';
         descEl.style.fontSize = '14px';
         descEl.style.lineHeight = '1.4';
         descEl.style.fontWeight = 'normal';
@@ -546,36 +546,7 @@ try {
           descEl.hidden = true;
         }
 
-        // 3. Координаты (по центру)
-        let coordsEl = byId('viewer-coords');
-        if (!coordsEl) {
-          coordsEl = document.createElement('div');
-          coordsEl.id = 'viewer-coords';
-          descEl.after(coordsEl);
-        }
-        
-        coordsEl.style.textAlign = 'center';
-        coordsEl.style.fontSize = '12px';
-        coordsEl.style.color = 'var(--accent)';
-        coordsEl.style.marginBottom = '12px';
-        coordsEl.style.cursor = 'pointer';
-        coordsEl.style.textDecoration = 'underline dashed';
-        
-        if (pinned.coords) {
-          coordsEl.textContent = 'Координаты: ' + pinned.coords[0].toFixed(6) + ', ' + pinned.coords[1].toFixed(6);
-          coordsEl.hidden = false;
-        } else {
-          coordsEl.hidden = true;
-        }
-        
-        coordsEl.onclick = () => {
-          navigator.clipboard.writeText(coordsEl.textContent.replace('Координаты: ', ''))
-            .then(() => {
-              const original = coordsEl.textContent;
-              coordsEl.textContent = 'Скопировано!';
-              setTimeout(() => coordsEl.textContent = original, 1500);
-            });
-        };
+        // (Блок с координатами в модальном окне УДАЛЕН)
 
         byId('large-photo').src = photo.src;
         viewer.showModal();
