@@ -1,61 +1,77 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Внешний вид фасадов на центральных улицах · Красноярск</title>
+<title>Фасады Красноярска · Карта</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231f6f68'/%3E%3Ccircle cx='16' cy='16' r='7' fill='white'/%3E%3Ccircle cx='16' cy='16' r='3' fill='%231f6f68'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="vendor/leaflet.css">
 <link rel="stylesheet" href="style.css">
-<script defer src="vendor/leaflet.js"></script>
-<script defer src="buildings.js"></script>
-<script defer src="app.js"></script>
 </head>
 <body>
-<main>
-  <header class="heading">
-    <div>
-      <div class="eyebrow">Красноярск · К 400-летию города</div>
-      <h1>Внешний вид фасадов на центральных улицах</h1>
-      <p>Карла Маркса, пр. Мира, Ленина</p>
-    </div>
-  </header>
-  <div class="workspace">
-    <section class="map-frame" aria-label="Карта фасадов">
-      <div id="map"></div>
-      <button id="reset" class="reset" type="button">Все объекты</button>
-      <p id="map-warning" role="status" hidden>Подложка не загрузилась. Метки и фотографии доступны. Проверь, что архив распакован полностью.</p>
-    </section>
-    <aside class="panel" aria-label="Объекты и легенда">
-      <section id="selection" aria-live="polite">
-        <div class="eyebrow" id="card-label">Как пользоваться</div>
-        <h2 id="card-title">Выбери здание</h2>
-        <p id="hint">Наведи курсор на метку, чтобы увидеть фасад. Нажми на метку, чтобы закрепить карточку.</p>
-        <button type="button" id="close" aria-label="Закрыть карточку" hidden>×</button>
-        <div id="details" hidden>
-          <p id="card-problem" hidden></p>
-          <img id="facade" alt="" hidden>
+<header class="topbar">
+  <div class="brand">
+    <span class="eyebrow">Красноярск · К 400-летию города</span>
+    <h1>Внешний вид фасадов на центральных улицах</h1>
+    <p class="subtitle">Карла Маркса, пр. Мира, Ленина</p>
+  </div>
+  <div class="top-actions">
+    <!-- Кнопка темы создаётся скриптом -->
+  </div>
+</header>
+
+<main class="layout">
+  <section class="map-wrap">
+    <div id="map"></div>
+    <button id="reset" class="btn map-btn" type="button">Все объекты</button>
+  </section>
+
+  <aside class="sidebar">
+    <section class="card" id="selection">
+      <div class="eyebrow" id="card-label">Как пользоваться</div>
+      <h2 id="card-title">Выберите здание</h2>
+      <p id="hint">Нажмите на метку на карте или на адрес в списке.</p>
+      <button id="close" class="btn icon-btn close" aria-label="Закрыть" hidden>×</button>
+
+      <div id="details" hidden>
+        <p id="card-problem" class="problem" hidden></p>
+        <div class="photo-box">
+          <img id="facade" alt="" hidden loading="lazy">
           <div id="photo-placeholder">
             <strong>Фото пока нет</strong>
-            <span>Имя файла: <code id="photo-name"></code></span>
+            <span>Файл: <code id="photo-name"></code></span>
           </div>
-          <button type="button" class="photo-link" id="enlarge" hidden>Увеличить фотографию</button>
         </div>
-      </section>
-      <section class="legend">
-        <h2>Легенда</h2>
-        <ul id="legend"></ul>
-      </section>
-      <section class="objects">
-        <h2>Объекты <span id="count"></span></h2>
-        <div id="addresses"></div>
-      </section>
-    </aside>
-  </div>
+        <button type="button" class="photo-link" id="enlarge" hidden>Увеличить фотографию</button>
+        <!-- Блок статуса, загрузки фото и удаления создаётся скриптом -->
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Фильтр</h2>
+      <ul id="legend" class="legend"></ul>
+      <!-- Кнопки добавления и сохранения создаются скриптом -->
+    </section>
+
+    <section class="card">
+      <h2>Объекты <span id="count" class="badge"></span></h2>
+      <div id="addresses" class="address-list"></div>
+    </section>
+  </aside>
 </main>
+
 <dialog id="viewer" aria-labelledby="viewer-title">
-  <div class="viewer-heading"><h2 id="viewer-title"></h2><form method="dialog"><button aria-label="Закрыть фотографию">×</button></form></div>
+  <div class="viewer-head">
+    <h2 id="viewer-title"></h2>
+    <form method="dialog"><button class="btn icon-btn" aria-label="Закрыть">×</button></form>
+  </div>
   <img id="large-photo" alt="">
 </dialog>
+
+<script defer src="vendor/leaflet.js"></script>
+<script defer src="buildings.js"></script>
+<script defer src="data.js" onerror="console.log('data.js не найден')"></script>
+<script defer src="app.js"></script>
 </body>
 </html>
