@@ -580,7 +580,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-60",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 59",
