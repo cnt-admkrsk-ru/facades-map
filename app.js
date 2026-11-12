@@ -239,7 +239,12 @@ try {
       byId('close').hidden = !pinned;
       byId('details').hidden = !building;
 
-      // Блок координат (теперь создаётся и вставляется после описания)
+      // 1. Описание
+      const problem = byId('card-problem');
+      problem.textContent = building?.problem ?? ''; problem.hidden = !problem.textContent;
+      if (problem && building) problem.className = 'problem ' + building.status;
+
+      // 2. Координаты (вставляем СРАЗУ после описания)
       let coordsEl = byId('card-coords');
       if (!coordsEl) {
         coordsEl = document.createElement('div'); coordsEl.id = 'card-coords';
@@ -247,7 +252,6 @@ try {
         coordsEl.style.marginTop = '4px'; coordsEl.style.marginBottom = '8px';
         coordsEl.style.cursor = 'pointer'; coordsEl.style.textDecoration = 'underline dashed';
         coordsEl.title = 'Нажмите, чтобы скопировать';
-        
         coordsEl.addEventListener('click', () => {
           navigator.clipboard.writeText(coordsEl.textContent.replace('Координаты: ', ''))
             .then(() => {
@@ -257,23 +261,16 @@ try {
             });
         });
       }
+      if (problem && problem.nextSibling !== coordsEl) {
+        problem.after(coordsEl);
+      }
       
-      // Перемещаем координаты вниз (после описания)
-      const detailsDiv = byId('details');
-      if (detailsDiv) detailsDiv.appendChild(coordsEl);
-
       if (building && building.coords) {
         coordsEl.textContent = 'Координаты: ' + building.coords[0].toFixed(6) + ', ' + building.coords[1].toFixed(6);
         coordsEl.hidden = false;
       } else coordsEl.hidden = true;
 
-      const problem = byId('card-problem');
-      problem.textContent = building?.problem ?? ''; problem.hidden = !problem.textContent;
-
-      if (problem && building) {
-        problem.className = 'problem ' + building.status;
-      }
-
+      // 3. Остальное (фото, кнопки)
       const del = byId('delete-point');
       if (del) del.hidden = !(pinned && isCustom(pinned));
 
@@ -516,13 +513,13 @@ try {
       enlargeBtn.addEventListener('click', () => {
         if (!pinned || photo.hidden) return;
         
-        // Настраиваем заголовок
+        // 1. Адрес (по центру)
         const titleEl = byId('viewer-title');
         titleEl.textContent = pinned.address;
         titleEl.style.textAlign = 'center';
-        titleEl.style.marginBottom = '4px';
+        titleEl.style.marginBottom = '8px';
         
-        // Настраиваем описание (2 строчка, слева)
+        // 2. Описание (по центру)
         let descEl = byId('viewer-desc');
         if (!descEl) {
           descEl = document.createElement('p');
@@ -530,9 +527,8 @@ try {
           titleEl.after(descEl);
         }
         
-        // Стили для описания (выравнивание по левому краю)
-        descEl.style.textAlign = 'left';
-        descEl.style.margin = '0 16px 12px';
+        descEl.style.textAlign = 'center';
+        descEl.style.margin = '0 16px 8px';
         descEl.style.fontSize = '14px';
         descEl.style.lineHeight = '1.4';
         descEl.style.fontWeight = 'normal';
@@ -541,7 +537,6 @@ try {
         
         if (pinned.problem) {
           descEl.textContent = pinned.problem;
-          // Подсветка в зависимости от статуса
           if (pinned.status === 'red') descEl.style.backgroundColor = 'rgba(195, 64, 69, 0.12)';
           else if (pinned.status === 'yellow') descEl.style.backgroundColor = 'rgba(239, 182, 41, 0.12)';
           else descEl.style.backgroundColor = 'rgba(34, 130, 89, 0.12)';
@@ -550,6 +545,37 @@ try {
         } else {
           descEl.hidden = true;
         }
+
+        // 3. Координаты (по центру)
+        let coordsEl = byId('viewer-coords');
+        if (!coordsEl) {
+          coordsEl = document.createElement('div');
+          coordsEl.id = 'viewer-coords';
+          descEl.after(coordsEl);
+        }
+        
+        coordsEl.style.textAlign = 'center';
+        coordsEl.style.fontSize = '12px';
+        coordsEl.style.color = 'var(--accent)';
+        coordsEl.style.marginBottom = '12px';
+        coordsEl.style.cursor = 'pointer';
+        coordsEl.style.textDecoration = 'underline dashed';
+        
+        if (pinned.coords) {
+          coordsEl.textContent = 'Координаты: ' + pinned.coords[0].toFixed(6) + ', ' + pinned.coords[1].toFixed(6);
+          coordsEl.hidden = false;
+        } else {
+          coordsEl.hidden = true;
+        }
+        
+        coordsEl.onclick = () => {
+          navigator.clipboard.writeText(coordsEl.textContent.replace('Координаты: ', ''))
+            .then(() => {
+              const original = coordsEl.textContent;
+              coordsEl.textContent = 'Скопировано!';
+              setTimeout(() => coordsEl.textContent = original, 1500);
+            });
+        };
 
         byId('large-photo').src = photo.src;
         viewer.showModal();

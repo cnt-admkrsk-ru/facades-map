@@ -64,14 +64,18 @@
 </main>
 
 <dialog id="viewer" aria-labelledby="viewer-title">
-  <div class="viewer-head">
+  <!-- Кнопка закрытия вынесена наверх, в правый угол -->
+  <form method="dialog" class="viewer-close-btn">
+    <button class="btn icon-btn" aria-label="Закрыть">×</button>
+  </form>
+
+  <div class="viewer-content">
     <h2 id="viewer-title"></h2>
-    <form method="dialog"><button class="btn icon-btn" aria-label="Закрыть">×</button></form>
+    <!-- Описание и координаты добавляются скриптом -->
+    <img id="large-photo" alt="">
   </div>
-  <img id="large-photo" alt="">
 </dialog>
 
 <script defer src="vendor/leaflet.js"></script>
 <script defer src="buildings.js"></script>
-<script defer src="app.js"></script>
-</
+<script defer src="app.js"></script
