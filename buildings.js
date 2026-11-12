@@ -19,7 +19,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-129",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 127",
@@ -30,7 +30,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-127",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 125",
@@ -41,7 +41,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-125",
-    "problem": ""
+    "problem": "Администрация Кр.кр"
   },
   {
     "address": "ул. Ленина, 123д",
@@ -52,7 +52,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-123d",
-    "problem": ""
+    "problem": "Зак. собрание Кр.кр"
   },
   {
     "address": "ул. Ленина, 123а",
@@ -63,7 +63,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-123a",
-    "problem": ""
+    "problem": "Администрация Кр.кр"
   },
   {
     "address": "ул. Ленина, 123",
@@ -74,7 +74,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-123",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 122",
@@ -85,7 +85,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-122",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 121",
@@ -96,7 +96,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-121",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 120",
@@ -107,7 +107,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-120",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 119",
@@ -118,7 +118,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-119",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 118а",
@@ -129,7 +129,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-118a",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 118",
@@ -140,7 +140,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-118",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 117",
@@ -151,7 +151,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-117",
-    "problem": "требуется локальный ремонт, в проработке у университета"
+    "problem": "КГАУ. Требуется локальный ремонт. В плане на 2027 год."
   },
   {
     "address": "ул. Ленина, 116",
@@ -162,7 +162,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-116",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 115",
@@ -173,7 +173,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-115",
-    "problem": "в ремонте на 2027"
+    "problem": "МДК. Ремонт на 2027 год."
   },
   {
     "address": "ул. Ленина, 114",
@@ -184,7 +184,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-114",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 113а",
@@ -195,7 +195,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-113a",
-    "problem": ""
+    "problem": "Офисное здание со множеством собственником"
   },
   {
     "address": "ул. Ленина, 113",
@@ -206,7 +206,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-113",
-    "problem": ""
+    "problem": "Офисное здание со множеством собственником"
   },
   {
     "address": "ул. Ленина, 112",
@@ -217,7 +217,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-112",
-    "problem": "в ремонте 2026"
+    "problem": "МКД. В ремонте в 2026 году."
   },
   {
     "address": "ул. Ленина, 111",
@@ -228,7 +228,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-111",
-    "problem": ""
+    "problem": "Офисное здание со множеством собственником"
   },
   {
     "address": "ул. Ленина, 110",
@@ -239,7 +239,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-110",
-    "problem": "в ремонте на 2027"
+    "problem": "МКД. Ремонт на 2027 год."
   },
   {
     "address": "ул. Ленина, 108",
@@ -250,7 +250,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-108",
-    "problem": ""
+    "problem": "ОКН. Служба по ГООКН Кр.кр. В ремонте в 2026 году."
   },
   {
     "address": "ул. Ленина, 104",
@@ -272,7 +272,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-102",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 100",
@@ -294,7 +294,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-97",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 95",
@@ -305,7 +305,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-95",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 92",
@@ -316,7 +316,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-92",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 91",
@@ -327,7 +327,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-91",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 90",
@@ -338,7 +338,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-90",
-    "problem": ""
+    "problem": "Стадион Локомотив"
   },
   {
     "address": "ул. Ленина, 88",
@@ -349,7 +349,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-88",
-    "problem": ""
+    "problem": "ЦСП Русал"
   },
   {
     "address": "ул. Ленина, 86",
@@ -360,7 +360,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-86",
-    "problem": "ОКН, в плане на 2027"
+    "problem": "ОКН. ООО «ПОЛЯРНАЯ ЭКСПЕДИЦИОННАЯ КОМПАНИЯ». В плане на 2027 год."
   },
   {
     "address": "ул. Ленина, 84",
@@ -371,7 +371,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-84",
-    "problem": ""
+    "problem": "ОКН. ООО «ПОЛЯРНАЯ ЭКСПЕДИЦИОННАЯ КОМПАНИЯ»."
   },
   {
     "address": "ул. Ленина, 80",
@@ -382,7 +382,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-80",
-    "problem": ""
+    "problem": "СГУ им. Решетнева"
   },
   {
     "address": "ул. Ленина, 79",
@@ -393,7 +393,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-79",
-    "problem": ""
+    "problem": "ОКН. Детская худ.школа."
   },
   {
     "address": "ул. Ленина, 76 стр. 3",
@@ -415,7 +415,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-76",
-    "problem": ""
+    "problem": "ОКН. Частная соб. Худ.школа Вагнер"
   },
   {
     "address": "ул. Ленина, 74",
@@ -426,7 +426,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "lenina-74",
-    "problem": "ОКН, отсутствует финансирование в частной собственности"
+    "problem": "ОКН. Частная соб. ТЦ Абалаковых. Финансирование отсутствует."
   },
   {
     "address": "ул. Ленина, 74 стр. 2",
@@ -448,7 +448,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-73",
-    "problem": ""
+    "problem": "СибГУ им. Решетнева. Столовая"
   },
   {
     "address": "ул. Ленина, 72",
@@ -459,7 +459,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-72",
-    "problem": "ремонт 2026"
+    "problem": "АО \"Исторический квартал\" В плане до 2028 года."
   },
   {
     "address": "ул. Ленина, 71",
@@ -470,7 +470,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-71",
-    "problem": ""
+    "problem": "СибГУ им. Решетнева."
   },
   {
     "address": "ул. Ленина, 70",
@@ -481,7 +481,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-70",
-    "problem": "требуется локальный ремонт, выставляют ДОМРФ на торги"
+    "problem": "Требуется локальный ремонт. ДОМ.РФ выставляет объект на торги. Бывшее здание СибГУ"
   },
   {
     "address": "ул. Ленина, 69",
@@ -492,7 +492,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-69",
-    "problem": "требуется локальный ремонт, в проработке у университета"
+    "problem": "СибГУ им. Решетнева. Требуется локальный ремонт."
   },
   {
     "address": "ул. Ленина, 68",
@@ -503,7 +503,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-68",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 67",
@@ -514,7 +514,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-67",
-    "problem": "ОКН, в плане на 2028"
+    "problem": "ОКН. АО \"Исторический квартал\" В плане до 2028 года."
   },
   {
     "address": "ул. Ленина, 66",
@@ -525,7 +525,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-66",
-    "problem": ""
+    "problem": "Литературный музей Астафьева"
   },
   {
     "address": "ул. Ленина, 63",
@@ -536,7 +536,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-63",
-    "problem": ""
+    "problem": "Общежитие СибГТУ."
   },
   {
     "address": "ул. Ленина, 64",
@@ -547,7 +547,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-64",
-    "problem": ""
+    "problem": "Военный комиссариат Кр.кр."
   },
   {
     "address": "ул. Ленина, 62",
@@ -558,7 +558,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "lenina-62",
-    "problem": "ОКН требуется локальный ремонт, реставрация была в 2019"
+    "problem": "ОКН. ФГУП ГПСС УСС по Кр.кр. Требуется локальный ремонт нижней части фасада. Реставрация была в 2019 году."
   },
   {
     "address": "ул. Ленина, 61",
@@ -569,7 +569,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-61",
-    "problem": ""
+    "problem": "Общежитие СибГТУ."
   },
   {
     "address": "ул. Ленина, 60",
@@ -591,7 +591,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-59",
-    "problem": "ОКН, в плане на 2027"
+    "problem": "ОКН. Пожарная часть 1. В плане на 2027 год."
   },
   {
     "address": "ул. Ленина, 58",
@@ -602,7 +602,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-58",
-    "problem": ""
+    "problem": "ОКН. АО \"Исторический квартал\". В плане до 2028 года."
   },
   {
     "address": "ул. Ленина, 56",
@@ -613,7 +613,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-56",
-    "problem": ""
+    "problem": "Частная соб. Торговый магазин"
   },
   {
     "address": "ул. Ленина, 54",
@@ -624,7 +624,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "lenina-54",
-    "problem": "в частной собственности, выставлен на продаже, есть проблема в оформлении как нежилое здание"
+    "problem": "Нежилое помещение в составе МКД"
   },
   {
     "address": "ул. Ленина, 49",
@@ -635,7 +635,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-49",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 46",
@@ -646,7 +646,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-46",
-    "problem": ""
+    "problem": "Частная соб. Бывший банк ВТБ."
   },
   {
     "address": "ул. Сурикова, 28",
@@ -657,7 +657,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "syrikova-28",
-    "problem": ""
+    "problem": "Нежилое здание. Гидрометеорология"
   },
   {
     "address": "ул. Ленина, 43",
@@ -668,7 +668,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-43",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 41",
@@ -679,7 +679,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-41",
-    "problem": ""
+    "problem": "Нежилое здание. ЦРМПиООС"
   },
   {
     "address": "ул. Ленина, 37",
@@ -690,7 +690,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-37",
-    "problem": ""
+    "problem": "Нежилое здание. Банк АТБ."
   },
   {
     "address": "ул. Ленина, 35 стр. 2",
@@ -712,7 +712,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-35",
-    "problem": ""
+    "problem": "Нежилое здание. КТО РНП работ.угольной промышленности"
   },
   {
     "address": "ул. Ленина, 34",
@@ -723,7 +723,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-34",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 32",
@@ -734,7 +734,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "lenina-32",
-    "problem": "ремонт 2026"
+    "problem": "Общежитие СибГТУ. Требуется локальный ремонт нижней части фасада"
   },
   {
     "address": "ул. Ленина, 29",
@@ -745,7 +745,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-29",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 28",
@@ -756,7 +756,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-28",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 26",
@@ -767,7 +767,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-26",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 25",
@@ -778,7 +778,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-25",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 24",
@@ -789,7 +789,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-24",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 23",
@@ -800,7 +800,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-23",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 22",
@@ -811,7 +811,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-22",
-    "problem": ""
+    "problem": "СГИИ им.Хворостовского"
   },
   {
     "address": "ул. Ленина, 21",
@@ -822,7 +822,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-21",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 20-16",
@@ -833,7 +833,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-20",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 15",
@@ -844,7 +844,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "lenina-15",
-    "problem": "Собор требуется локальный ремонт, в проработке у Епархии, отсутствует финансирование"
+    "problem": "Благовещенская церковь"
   },
   {
     "address": "ул. Ленина, 13",
@@ -855,7 +855,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-13",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 11",
@@ -866,7 +866,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-11",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 5а",
@@ -877,7 +877,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "lenina-5а",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Ленина, 3а",
@@ -888,7 +888,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "lenina-3а",
-    "problem": "ОКН, требуется ремонт, в частной собственности, отсутствует финансирование"
+    "problem": "ОКН. Частная соб. Требуется капитальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "ул. Сурикова, 12",
@@ -899,7 +899,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "syrikova-12",
-    "problem": ""
+    "problem": "Нежилое здание. ИОНЕССИ"
   },
   {
     "address": "ул. Сурикова, 19",
@@ -910,7 +910,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "syrikova-73",
-    "problem": ""
+    "problem": "Нежилое здание. Муз.школа"
   },
   {
     "address": "ул. Карла Маркса, 56",
@@ -921,7 +921,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-56",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 52",
@@ -932,7 +932,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-52",
-    "problem": ""
+    "problem": "Нежилое здание. АО \"Исторический квартал\""
   },
   {
     "address": "ул. Карла Маркса, 49",
@@ -943,7 +943,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-49",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 48",
@@ -954,7 +954,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-48",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "ул. Карла Маркса, 47",
@@ -965,7 +965,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-47",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 45",
@@ -976,7 +976,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-45",
-    "problem": ""
+    "problem": "Нежилое здание. ККЦ со СПИД"
   },
   {
     "address": "ул. Карла Маркса, 44а",
@@ -987,7 +987,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-44a",
-    "problem": ""
+    "problem": "Нежилое здание. Кцпрои."
   },
   {
     "address": "ул. Карла Маркса, 43",
@@ -998,7 +998,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-43",
-    "problem": ""
+    "problem": "Нежилое здание. Краевая больница 2"
   },
   {
     "address": "ул. Карла Маркса, 42",
@@ -1009,7 +1009,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-42",
-    "problem": "ОКН, в  ремонте"
+    "problem": "ОКН. ФБУ \"ТФ геологической информации по Сиб.округу\" В ремонте в 2026 году."
   },
   {
     "address": "ул. Карла Маркса, 42/1",
@@ -1031,7 +1031,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-41",
-    "problem": ""
+    "problem": "Нежилое здание. Частная соб."
   },
   {
     "address": "ул. Карла Маркса, 40",
@@ -1042,7 +1042,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-40",
-    "problem": ""
+    "problem": "ОКН. Малоэтажный расселенный жилой дом"
   },
   {
     "address": "ул. Карла Маркса, 38",
@@ -1053,7 +1053,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-38",
-    "problem": ""
+    "problem": "ОКН. Частная соб. Салон штор."
   },
   {
     "address": "ул. Карла Маркса, 37",
@@ -1064,7 +1064,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-37",
-    "problem": ""
+    "problem": "Нежилое здание. Центр доп.образования детей."
   },
   {
     "address": "ул. Карла Маркса, 36",
@@ -1075,7 +1075,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-36",
-    "problem": ""
+    "problem": "ОКН. Музей Сурикова. В 2027 году проект. На июнь 2028 год ремонт фасада и кровли."
   },
   {
     "address": "ул. Карла Маркса, 34",
@@ -1086,7 +1086,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-34",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 30",
@@ -1097,7 +1097,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "marksa-30",
-    "problem": "требуется снос или ремонт, частная собственность"
+    "problem": "Частная соб. Требуется снос или ремонт."
   },
   {
     "address": "ул. Карла Маркса, 28",
@@ -1108,7 +1108,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-28",
-    "problem": "ОКН, в планах на 2027  ремонт"
+    "problem": "ОКН. АО \"Русал\" Ремонт на 2027 год."
   },
   {
     "address": "ул. Карла Маркса, 26",
@@ -1119,7 +1119,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-26",
-    "problem": ""
+    "problem": "Нежилое здание. Банк Синара."
   },
   {
     "address": "ул. Карла Маркса, 24а",
@@ -1130,7 +1130,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-24a",
-    "problem": ""
+    "problem": "Нежилое здание. Банк Сбербанк."
   },
   {
     "address": "ул. Карла Маркса, 24",
@@ -1141,7 +1141,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-24",
-    "problem": "ОКН, в  ремонте"
+    "problem": "ОКН. АО \"Русал\" Ремонт на 2027 год."
   },
   {
     "address": "ул. Карла Маркса, 22",
@@ -1152,7 +1152,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "marksa-22",
-    "problem": "ОКН, в  ремонте"
+    "problem": "ОКН. АО \"Русал\" Ремонт на 2027 год."
   },
   {
     "address": "ул. Карла Маркса, 21",
@@ -1163,7 +1163,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-21",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 19",
@@ -1174,7 +1174,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-19",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 14",
@@ -1185,7 +1185,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-14",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 14а",
@@ -1196,7 +1196,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-14a",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 8а",
@@ -1207,7 +1207,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-8а",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "ул. Карла Маркса, 6",
@@ -1218,7 +1218,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "marksa-6",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Гос. краевой архив."
   },
   {
     "address": "ул. Горького, 6",
@@ -1229,7 +1229,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "gorcogo-6",
-    "problem": ""
+    "problem": "Нежилое здание. АО \"РЖД\""
   },
   {
     "address": "пр. Мира, 114",
@@ -1240,7 +1240,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-114",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 112",
@@ -1251,7 +1251,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-112",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 110",
@@ -1262,7 +1262,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-110",
-    "problem": ""
+    "problem": "Нежилое здание. Администрация Губернатора Кр.кр."
   },
   {
     "address": "пр. Мира, 108",
@@ -1273,7 +1273,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-108",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Бывший ЦНТИ. Соб-ник ООО \"Вегас\""
   },
   {
     "address": "пр. Мира, 106/1",
@@ -1295,7 +1295,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-106",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 104",
@@ -1306,7 +1306,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-104",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 102а",
@@ -1317,7 +1317,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-102a",
-    "problem": ""
+    "problem": "Нежилое здание. Частная соб."
   },
   {
     "address": "пр. Мира, 102",
@@ -1328,7 +1328,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-102",
-    "problem": ""
+    "problem": "Нежилое здание. Кр.кр. организация проф.работ.связи"
   },
   {
     "address": "пр. Мира, 100",
@@ -1339,7 +1339,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-100",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 99",
@@ -1350,7 +1350,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-99",
-    "problem": ""
+    "problem": "ОКН. Красноярский госпиталь"
   },
   {
     "address": "пр. Мира, 98",
@@ -1361,7 +1361,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-98",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание  со множеством собственников."
   },
   {
     "address": "пр. Мира, 96",
@@ -1372,7 +1372,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-96",
-    "problem": "ОКН, в планах на 2027  ремонт"
+    "problem": "ОКН. Нежилое здание  со множеством собственников. Ремонт на 2027 год."
   },
   {
     "address": "пр. Мира, 94",
@@ -1383,7 +1383,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-94",
-    "problem": ""
+    "problem": "Нежилое здание  со множеством собственников."
   },
   {
     "address": "пр. Мира, 93",
@@ -1394,7 +1394,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-93",
-    "problem": ""
+    "problem": "ОКН. Президентский фонд культурных инициатив"
   },
   {
     "address": "пр. Мира, 91а",
@@ -1405,7 +1405,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-91a",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 91",
@@ -1416,7 +1416,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-91",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 90",
@@ -1427,7 +1427,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-90",
-    "problem": "требуется локальный ремонт, отсутствует финансирование, университет -ОКН"
+    "problem": "ОКН. КГАУ ИММиО. Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 89",
@@ -1438,7 +1438,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-89",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 87",
@@ -1449,7 +1449,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-87",
-    "problem": "требуется локальный ремонт"
+    "problem": "Управление экономической безопасности и противодействие коррупции."
   },
   {
     "address": "пр. Мира, 88",
@@ -1460,7 +1460,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-88",
-    "problem": ""
+    "problem": "Нежилое здание. КГПУ им. Астафьева"
   },
   {
     "address": "пр. Мира, 86",
@@ -1471,7 +1471,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-86",
-    "problem": ""
+    "problem": "Нежилое здание. Дом кино"
   },
   {
     "address": "пр. Мира, 85",
@@ -1482,7 +1482,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-85",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 83",
@@ -1493,7 +1493,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-83",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 84",
@@ -1504,7 +1504,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-84",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 82",
@@ -1515,7 +1515,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-82",
-    "problem": ""
+    "problem": "ОКН. СибГУ. Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 81",
@@ -1526,7 +1526,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-81",
-    "problem": "требуется локальный ремонт"
+    "problem": "ОКН. МКД. Требуется локальный ремонт. Финансирование отсутствует"
   },
   {
     "address": "пр. Мира, 80а",
@@ -1548,7 +1548,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-80",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 79",
@@ -1559,7 +1559,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-79",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание."
   },
   {
     "address": "пр. Мира, 78",
@@ -1570,7 +1570,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-78",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Париж"
   },
   {
     "address": "пр. Мира, 76",
@@ -1581,7 +1581,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-76",
-    "problem": ""
+    "problem": "ОКН. КГАУ ДПО \"Кр.кр.  ИНСТИТУТ РАЗВИТИЯ ОБРАЗОВАНИЯ» Ремонт в плане на 2027 год."
   },
   {
     "address": "пр. Мира, 75",
@@ -1592,7 +1592,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-75",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Театр Пушкина"
   },
   {
     "address": "пр. Мира, 74а",
@@ -1603,7 +1603,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-74a",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание."
   },
   {
     "address": "пр. Мира, 74",
@@ -1614,7 +1614,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-74",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание."
   },
   {
     "address": "пр. Мира, 73",
@@ -1625,7 +1625,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-73",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание."
   },
   {
     "address": "пр. Мира, 72",
@@ -1636,7 +1636,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-72",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание."
   },
   {
     "address": "пр. Мира, 71",
@@ -1647,7 +1647,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-71",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Театр Пушкина"
   },
   {
     "address": "пр. Мира, 70",
@@ -1658,7 +1658,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-70",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. КрасГМУ. В ремонте в 2026 году."
   },
   {
     "address": "пр. Мира, 69",
@@ -1669,7 +1669,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-69",
-    "problem": ""
+    "problem": "Нежилое здание. Дом офицеров. В ремонте в 2026 году."
   },
   {
     "address": "пр. Мира, 67",
@@ -1680,7 +1680,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-67",
-    "problem": ""
+    "problem": "Нежилое здание. АО \"Исторический квартал\". Ремонт в плане до 2028 года."
   },
   {
     "address": "пр. Мира, 66",
@@ -1691,7 +1691,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-66",
-    "problem": "требуется локальный ремонт"
+    "problem": "ОКН. ДОМ РФ. Требуется локальный ремонт."
   },
   {
     "address": "пр. Мира, 65",
@@ -1702,7 +1702,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-65",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 64",
@@ -1713,7 +1713,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-64",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 63",
@@ -1724,7 +1724,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-63",
-    "problem": ""
+    "problem": "Нежилое административное  здание"
   },
   {
     "address": "пр. Мира, 61",
@@ -1735,7 +1735,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-61",
-    "problem": ""
+    "problem": "Нежилое административное  здание. В частной соб."
   },
   {
     "address": "пр. Мира, 60",
@@ -1746,7 +1746,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-60",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников. Дом Быта"
   },
   {
     "address": "ул. Вейнбаума, 15",
@@ -1757,7 +1757,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "veinbayma-15",
-    "problem": ""
+    "problem": "Нежилое административное  здание. В частной соб."
   },
   {
     "address": "пр. Мира, 59",
@@ -1768,7 +1768,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-59",
-    "problem": ""
+    "problem": "Нежилое административное  здание. В частной соб."
   },
   {
     "address": "пр. Мира, 57",
@@ -1779,7 +1779,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-57",
-    "problem": ""
+    "problem": "Нежилое административное  здание. В частной соб."
   },
   {
     "address": "пр. Мира, 56",
@@ -1790,7 +1790,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-56",
-    "problem": "требуется локальный ремонт, отсутсвует финансирование на ремонт"
+    "problem": "Нежилое административное  здание. В краевой соб-ти. Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 55",
@@ -1801,7 +1801,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-55",
-    "problem": ""
+    "problem": "Нежилое здание."
   },
   {
     "address": "пр. Мира, 54",
@@ -1812,7 +1812,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-54",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 53",
@@ -1823,7 +1823,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-53",
-    "problem": "ОКН, в планах на 2027  ремонт"
+    "problem": "ОКН. ФГБНУ «ФИЦ «Красноярский научный центр Сибирского отделения Российской академии наук» Запросили финансирование в РФ в г. Москве на ремонт фасада"
   },
   {
     "address": "пр. Мира, 52",
@@ -1834,7 +1834,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-52",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 50а",
@@ -1845,7 +1845,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-50а",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 51",
@@ -1856,7 +1856,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-51",
-    "problem": "ОКН, требуется ремонт 1 этажа, в работе у собственника со службой"
+    "problem": "ОКН. Требуется ремонт первого этажа. Вопрос прорабатывают собственник и служба."
   },
   {
     "address": "пр. Мира, 49",
@@ -1867,7 +1867,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-49",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 47",
@@ -1878,7 +1878,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-47",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "ОКН. Нежилое здание со множеством собственников. Требуется локальный ремонт 1-го этажа. Финансирование на ремонт имеется, ведутся работы по согласованию со службой ОКН."
   },
   {
     "address": "пр. Мира, 46",
@@ -1889,7 +1889,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-46",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Краевая поликлиника"
   },
   {
     "address": "пр. Мира, 45",
@@ -1900,7 +1900,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-45",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "Нежилое здание со множеством собственников. Требуется локальный ремонт. В плане на 2027 год."
   },
   {
     "address": "пр. Мира, 39",
@@ -1911,7 +1911,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-39",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 37",
@@ -1922,7 +1922,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-37",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "ОКН. ТФ геологической информации по Сиб.округу. Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 36",
@@ -1933,7 +1933,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-36",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 35",
@@ -1944,7 +1944,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-35",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "ОКН. Нежилое здание. Медэкспертиза. Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 35/19",
@@ -1966,7 +1966,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-34",
-    "problem": ""
+    "problem": "Нежилое здание. Министерство соцполитики"
   },
   {
     "address": "пр. Мира, 32",
@@ -1977,7 +1977,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-32",
-    "problem": ""
+    "problem": "Нежилое здание. Краевая прокуратура"
   },
   {
     "address": "пр. Мира, 30",
@@ -1988,7 +1988,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-30",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 29",
@@ -1999,7 +1999,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-29",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 27 стр. 1",
@@ -2021,7 +2021,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-27",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 26",
@@ -2032,7 +2032,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-26",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 25",
@@ -2043,7 +2043,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-25",
-    "problem": ""
+    "problem": "Нежилое административное здание."
   },
   {
     "address": "пр. Мира, 24",
@@ -2065,7 +2065,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-22",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 20",
@@ -2076,7 +2076,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-20",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "Нежилое здание. Кр.краевой противотурберк. диспансер."
   },
   {
     "address": "пр. Мира, 19 стр. 1",
@@ -2098,7 +2098,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-19",
-    "problem": ""
+    "problem": "Нежилое здание. Краскон"
   },
   {
     "address": "пр. Мира, 17",
@@ -2109,7 +2109,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-17",
-    "problem": ""
+    "problem": "Нежилое здание. Краевой суд."
   },
   {
     "address": "пр. Мира, 16",
@@ -2120,7 +2120,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-16",
-    "problem": "требуется локальный ремонт"
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 15",
@@ -2131,7 +2131,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-15",
-    "problem": ""
+    "problem": "Нежилое здание. Гостиница Октябрьская."
   },
   {
     "address": "пр. Мира, 14",
@@ -2142,7 +2142,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-14",
-    "problem": ""
+    "problem": "ОКН. Нежилое здание. Советник"
   },
   {
     "address": "пр. Мира, 12",
@@ -2153,7 +2153,7 @@ const buildings = [
     ],
     "status": "yellow",
     "photo": "mira-12",
-    "problem": "требуется локальный ремонт"
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 10",
@@ -2164,7 +2164,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-10",
-    "problem": ""
+    "problem": "Нежилое здание со множеством собственников."
   },
   {
     "address": "пр. Мира, 9",
@@ -2175,7 +2175,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-9",
-    "problem": ""
+    "problem": "Нежилое здание. Судебная коллегия."
   },
   {
     "address": "пр. Мира, 7а",
@@ -2186,7 +2186,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-7a",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "Часть нежилого здания и часть МКД. УК \"ЖСК\" Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 7",
@@ -2197,7 +2197,7 @@ const buildings = [
     ],
     "status": "green",
     "photo": "mira-7",
-    "problem": ""
+    "problem": "МКД"
   },
   {
     "address": "пр. Мира, 5",
@@ -2208,7 +2208,7 @@ const buildings = [
     ],
     "status": "red",
     "photo": "mira-5",
-    "problem": "требуется локальный ремонт, отсутствует финансирование"
+    "problem": "Нежилое здание. Профессорская клиника. Требуется локальный ремонт. Финансирование отсутствует."
   },
   {
     "address": "пр. Мира, 3",

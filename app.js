@@ -150,6 +150,7 @@ function createUI() {
       '<label>Адрес (имя файла фото) <input type="text" id="new-address" placeholder="ул. Ленина, 100" required></label>' +
       '<label>Координаты (широта, долгота) <input type="text" id="new-coords" placeholder="56.012345, 92.876543" required></label>' +
       '<label>Категория <select id="new-status"><option value="green">Удовлетворительно</option><option value="yellow">В ремонте / план</option><option value="red">Проблемный</option></select></label>' +
+      '<label>Описание (проблематика) <textarea id="new-problem" rows="3" placeholder="МКД. Требуется ремонт..." style="font: inherit; padding: 8px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); resize: vertical;"></textarea></label>' +
       '<div class="form-actions"><button type="button" id="cancel-add">Отмена</button><button type="submit" id="confirm-add">Добавить</button></div>' +
       '</form>';
     document.body.appendChild(dialog);
@@ -208,7 +209,6 @@ try {
       if (!building) return;
       byId('photo-name').textContent = building.photo;
       
-      // Убираем "мусор" из URL, чтобы обновить кэш
       const cacheBuster = Date.now();
       const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp?t=${cacheBuster}`;
       
@@ -381,7 +381,6 @@ try {
           byId('photo-name').textContent = 'Загрузка...';
           await uploadToSupabase(webpBlob, fileName);
           
-          // Принудительно перезагружаем фото
           photoBuilding = null; 
           renderCard();
         } catch (e) {
@@ -398,7 +397,9 @@ try {
       if (addBtn) addBtn.addEventListener('click', () => {
         const c = map.getCenter();
         byId('new-coords').value = c.lat.toFixed(6) + ', ' + c.lng.toFixed(6);
-        byId('new-address').value = ''; dialog.showModal();
+        byId('new-address').value = ''; 
+        byId('new-problem').value = '';
+        dialog.showModal();
       });
       byId('cancel-add').addEventListener('click', () => dialog.close());
       byId('confirm-add').addEventListener('click', (e) => {
@@ -406,6 +407,8 @@ try {
         const addressInput = byId('new-address').value.trim();
         const raw = byId('new-coords').value.trim();
         const status = byId('new-status').value;
+        const problemInput = byId('new-problem').value.trim();
+        
         if (!addressInput) return alert('Введите адрес');
         const parts = raw.split(/[,;\s]+/).filter(Boolean);
         if (parts.length < 2) return alert('Введите координаты: широта, долгота');
@@ -415,7 +418,17 @@ try {
         let finalName = safeName; let counter = 1;
         const existingNames = new Set([...buildings.map(b => b.photo), ...customBuildings.map(b => b.photo)]);
         while (existingNames.has(finalName)) { finalName = safeName + '-' + counter; counter++; }
-        const newB = { address: addressInput, number: addressInput.split(',').pop().trim() || lat.toFixed(4) + ',' + lng.toFixed(4), coords: [lat, lng], status, photo: finalName, problem: '', updated: '' };
+        
+        const newB = { 
+          address: addressInput, 
+          number: addressInput.split(',').pop().trim() || lat.toFixed(4) + ',' + lng.toFixed(4), 
+          coords: [lat, lng], 
+          status, 
+          photo: finalName, 
+          problem: problemInput,
+          updated: '' 
+        };
+        
         customBuildings.push(newB); activeStatuses.add(status);
         buildLegend(); buildMarkers(); dialog.close();
         map.flyTo([lat, lng], 17, { duration: 0.8 }); pin(newB);
@@ -469,6 +482,37 @@ try {
       }
     }
 
+    function initEnlarge() {
+      const enlargeBtn = byId('enlarge');
+      if (!enlargeBtn) return;
+      
+      enlargeBtn.addEventListener('click', () => {
+        if (!pinned || photo.hidden) return;
+        
+        byId('viewer-title').textContent = pinned.address;
+        
+        let descEl = byId('viewer-desc');
+        if (!descEl) {
+          descEl = document.createElement('p');
+          descEl.id = 'viewer-desc';
+          descEl.style.margin = '4px 0 8px';
+          descEl.style.fontSize = '13px';
+          descEl.style.color = 'var(--muted)';
+          descEl.style.lineHeight = '1.4';
+          byId('viewer-title').after(descEl);
+        }
+        if (pinned.problem) {
+          descEl.textContent = pinned.problem;
+          descEl.hidden = false;
+        } else {
+          descEl.hidden = true;
+        }
+
+        byId('large-photo').src = photo.src;
+        viewer.showModal();
+      });
+    }
+
     (async () => {
       try {
         const cloudMarkers = await loadMarkersFromSupabase();
@@ -476,16 +520,11 @@ try {
       } catch (e) { console.warn('Не удалось загрузить метки из Supabase', e); }
 
       buildLegend(); buildMarkers();
-      initTheme(); initPhotoUpload(); initAddPoint(); initDeletePoint(); initStatusEditor();
+      initTheme(); initPhotoUpload(); initAddPoint(); initDeletePoint(); initStatusEditor(); initEnlarge();
       const saveBtn = byId('save-map'); if (saveBtn) saveBtn.addEventListener('click', saveMap);
       const closeBtn = byId('close');
       if (closeBtn) closeBtn.addEventListener('click', () => { const p = pinned; pin(null); entries.find(e => e.building === p)?.marker.getElement()?.focus(); });
       const resetBtn = byId('reset'); if (resetBtn) resetBtn.addEventListener('click', () => { pin(null); showOverview(); });
-      const enlargeBtn = byId('enlarge');
-      if (enlargeBtn) enlargeBtn.addEventListener('click', () => {
-        if (!pinned || photo.hidden) return;
-        byId('viewer-title').textContent = pinned.address; byId('large-photo').src = photo.src; viewer.showModal();
-      });
       showOverview(); renderCard();
     })();
   }
