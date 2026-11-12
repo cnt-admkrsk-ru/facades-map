@@ -29,7 +29,9 @@
 
   <aside class="sidebar">
     <section class="card" id="selection">
-      <div class="eyebrow" id="card-label">Как пользоваться</div>
+      <!-- Этот блок скрыт, так как надпись "Карточка закреплена" больше не нужна -->
+      <div class="eyebrow" id="card-label" hidden></div>
+      
       <h2 id="card-title">Выберите здание</h2>
       <p id="hint">Нажмите на метку на карте или на адрес в списке.</p>
       <button id="close" class="btn icon-btn close" aria-label="Закрыть" hidden>×</button>
@@ -71,6 +73,4 @@
 
 <script defer src="vendor/leaflet.js"></script>
 <script defer src="buildings.js"></script>
-<script defer src="app.js"></script>
-</body>
-</html>
+<script defer src="

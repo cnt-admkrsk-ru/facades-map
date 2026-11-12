@@ -168,6 +168,7 @@ try {
     let pinned = null, preview = null;
     const entries = [];
     let photoBuilding = null, photoRequest = 0;
+    const loadedPhotos = new Map(); // Кэш загруженных фото (чтобы не грузить повторно)
 
     const basemapBounds = L.latLngBounds([56.004, 92.846], [56.021, 92.893]);
     const allBuildings = () => {
@@ -207,15 +208,24 @@ try {
       const request = ++photoRequest;
       photo.hidden = true; placeholder.hidden = !building;
       if (!building) return;
-      byId('photo-name').textContent = building.photo;
       
-      const cacheBuster = Date.now();
-      const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp?t=${cacheBuster}`;
+      // Проверяем кэш (если фото уже загружали в этой сессии)
+      if (loadedPhotos.has(building.photo)) {
+        photo.src = loadedPhotos.get(building.photo); 
+        photo.alt = 'Фасад · ' + building.address;
+        photo.hidden = false; placeholder.hidden = true;
+        if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
+        return;
+      }
+
+      byId('photo-name').textContent = building.photo;
+      const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${building.photo}.webp`;
       
       try {
         const res = await fetch(url, { method: 'HEAD' });
         if (res.ok) {
           if (request !== photoRequest) return;
+          loadedPhotos.set(building.photo, url); // Сохраняем в кэш
           photo.src = url; photo.alt = 'Фасад · ' + building.address;
           photo.hidden = false; placeholder.hidden = true;
           if (byId('enlarge')) byId('enlarge').hidden = !pinned || photo.hidden;
@@ -235,12 +245,24 @@ try {
       byId('close').hidden = !pinned;
       byId('details').hidden = !building;
 
+      // Блок координат (кликабельный для копирования)
       let coordsEl = byId('card-coords');
       if (!coordsEl) {
         coordsEl = document.createElement('div'); coordsEl.id = 'card-coords';
-        coordsEl.style.fontSize = '12px'; coordsEl.style.color = 'var(--muted)';
+        coordsEl.style.fontSize = '12px'; coordsEl.style.color = 'var(--accent)';
         coordsEl.style.marginTop = '4px'; coordsEl.style.marginBottom = '8px';
-        const title = byId('card-title'); if (title) title.after(coordsEl);
+        coordsEl.style.cursor = 'pointer'; coordsEl.style.textDecoration = 'underline dashed';
+        coordsEl.title = 'Нажмите, чтобы скопировать';
+        const title = byId('card-title'); if (title) title.parentNode.insertBefore(coordsEl, title);
+        
+        coordsEl.addEventListener('click', () => {
+          navigator.clipboard.writeText(coordsEl.textContent.replace('Координаты: ', ''))
+            .then(() => {
+              const original = coordsEl.textContent;
+              coordsEl.textContent = 'Скопировано!';
+              setTimeout(() => coordsEl.textContent = original, 1500);
+            });
+        });
       }
       if (building && building.coords) {
         coordsEl.textContent = 'Координаты: ' + building.coords[0].toFixed(6) + ', ' + building.coords[1].toFixed(6);
@@ -249,6 +271,11 @@ try {
 
       const problem = byId('card-problem');
       problem.textContent = building?.problem ?? ''; problem.hidden = !problem.textContent;
+
+      // Подсветка описания в зависимости от статуса
+      if (problem && building) {
+        problem.className = 'problem ' + building.status;
+      }
 
       const del = byId('delete-point');
       if (del) del.hidden = !(pinned && isCustom(pinned));
@@ -381,6 +408,8 @@ try {
           byId('photo-name').textContent = 'Загрузка...';
           await uploadToSupabase(webpBlob, fileName);
           
+          // Очищаем кэш для этого фото, чтобы оно загрузилось заново
+          loadedPhotos.delete(pinned.photo);
           photoBuilding = null; 
           renderCard();
         } catch (e) {
@@ -482,6 +511,7 @@ try {
       }
     }
 
+    // --- МОДАЛЬНОЕ ОКНО С ФОТО И ОПИСАНИЕМ ---
     function initEnlarge() {
       const enlargeBtn = byId('enlarge');
       if (!enlargeBtn) return;
@@ -495,18 +525,22 @@ try {
         if (!descEl) {
           descEl = document.createElement('p');
           descEl.id = 'viewer-desc';
-          descEl.style.margin = '4px 0 8px';
-          descEl.style.fontSize = '13px';
-          descEl.style.color = 'var(--muted)';
-          descEl.style.lineHeight = '1.4';
+          descEl.style.margin = '8px 0';
+          descEl.style.fontSize = '14px';
+          descEl.style.fontWeight = '600';
+          descEl.style.textAlign = 'center';
           byId('viewer-title').after(descEl);
         }
         if (pinned.problem) {
           descEl.textContent = pinned.problem;
+          descEl.className = 'problem ' + pinned.status; // Подсветка статуса
           descEl.hidden = false;
         } else {
           descEl.hidden = true;
         }
+
+        byId('viewer-title').style.textAlign = 'center';
+        byId('viewer-title').style.marginBottom = '0';
 
         byId('large-photo').src = photo.src;
         viewer.showModal();
